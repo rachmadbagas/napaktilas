@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+}
+
+.row{
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.bilah8 , .bilah4{
+    display: block;
+    height: 100px;
+    float: left;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.bilah8 {
+    width: 66.6666666667%;
+    background-color: grey;
+}
+
+.bilah4 {
+    width: 33.3333333333%;
+    background-color: green;
+}
+
+@media screen and (max-width: 991px) {
+    .bilah8 {
+        width: 66.6666666667%;
+        background-color: grey;
+    }
+
+    .container{
+        width: calc(100% - 80px);
+    }
+    
+    .bilah4 {
+        width: 33.3333333333%;
+        background-color: green;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .bilah8 {
+        width: 100%;
+        background-color: grey;
+    }
+
+    .container{
+        width: calc(100% - 80px);
+    }
+    
+    .bilah4 {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 479px) {
+    .bilah8 {
+        width: 100%;
+    }
+    
+    .container{
+        width: 100%;
+    }
+
+    .bilah4 {
+        width: 100%;
+        /* display: none; */
+    }
+
+}
