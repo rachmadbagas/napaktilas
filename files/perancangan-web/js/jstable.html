@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js table</title>
+</head>
+
+<body>
+
+
+    <input type="text" id="nama" placeholder="nama"><br>
+    <input type="text" id="nim" placeholder="nim"><br>
+    <button onclick="tambah($('nama').value,$('nim').value)">tambah</button>
+    <br>
+    <table id="table">
+        <thead>
+            <tr>
+                <td>Nama</td>
+                <td>Nim</td>
+                <td>Action</td>
+            </tr>
+
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function tambah(nama, nim) {
+            if (nama != '' && nim != '') {
+                var data = $('table').getElementsByTagName('tbody')[0];
+                // data.append('<tr><td>Nama</td><td>Nim</td></tr>');
+                var newRow = data.insertRow(data.rows.length);
+                var newCell = newRow.insertCell(0);
+                var newText = document.createTextNode(nama);
+                newCell.appendChild(newText);
+                var newCell = newRow.insertCell(1);
+                var newText = document.createTextNode(nim);
+                newCell.appendChild(newText);
+                var newCell = newRow.insertCell(2);
+
+                var btn = document.createElement("BUTTON");
+                var t = document.createTextNode("lihat");
+                btn.setAttribute('data-nama', nama);
+                btn.setAttribute('data-nim', nim);
+                btn.setAttribute('class', 'lihat');
+                btn.appendChild(t);
+                newCell.appendChild(btn);
+                console.log(data);
+                document.getElementsByClassName('lihat').onclick = 'test';
+            }
+        }
+
+        function test() {
+            alert('asd');
+        }
+
+    </script>
+</body>
+
+</html>
