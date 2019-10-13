@@ -59,7 +59,9 @@
       ```
       <VirtualHost *:80>
            ServerAdmin webmaster@localhost
-
+           ServerName example.com
+           ServerAlias www.example.com
+           
            DocumentRoot /var/www
            <Directory />
                    Options FollowSymLinks
