@@ -69,5 +69,5 @@
 9.  `named-checkconf`
 10. `named-checkzone bagas.com /etc/bind/zones/db.bagas.com`
 11. `named-checkzone 192.168.in-addr.arpa /etc/bind/zones/db.192.168`
-12. 12. `sudo systemctl reload bind9`
+12. `sudo systemctl reload bind9`
 13. `sudo systemctl restart bind9`
