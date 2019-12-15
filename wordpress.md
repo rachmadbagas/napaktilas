@@ -4,9 +4,9 @@
 2.  ```sudo mysql_secure_installation```
 3.  ```sudo mysql```
     ```
-    mysql > SELECT user,authentication_string,plugin,host FROM mysql.user;
-    mysql > ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'passwordmu';
-    mysql > FLUSH PRIVILEGES;
+    mysql> SELECT user,authentication_string,plugin,host FROM mysql.user;
+    mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'passwordmu';
+    mysql> FLUSH PRIVILEGES;
     ```
 4.  ```mysql -u root -p```
 

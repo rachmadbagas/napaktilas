@@ -2,10 +2,9 @@
 1. `sudo apt-get install bind9 bind9utils bind9-doc`
 2. `sudo nano /etc/default/bind9`
     ```
-    RESOLVCONF=no
     OPTIONS="-u bind -4"
     ```
-1. `sudo nano /etc/bind/named.conf.options`
+3. `sudo nano /etc/bind/named.conf.options`
     ```
     forwarders {
 	   8.8.8.8;
@@ -40,11 +39,12 @@
                 2419200		; Expire
                 604800 )	; Negative Cache TTL
     ;
-    @	IN	NS	bagas.com.
-    @	IN	A	192.168.56.104
-    www IN  A	192.168.56.104
-    mail    IN  A	192.168.56.104
-    1w  IN  MX  10  mail.bagas.com
+    @	IN	NS	ns.bagas.com.
+    ns	IN	A	192.168.56.104
+    www	IN      A	192.168.56.104
+    mail	IN	A	192.168.56.106
+    email	IN	A	192.168.56.106
+
     ```
 7. `sudo cp /etc/bind/db.127 /etc/bind/zones/db.192.168`
 8.  `sudo nano /etc/bind/zones/db.192.168`
@@ -61,11 +61,13 @@
                 604800 )	; Negative Cache TTL
     ;
     @	IN	NS	ns.bagas.com.
-    1.0.0	IN	PTR	bagas.com.
-    @	IN	A	192.168.56.104
-    www	IN	A	192.168.56.104
+    222	IN	PTR	bagas.com.
+    10	IN	MX	mail.
+    222	IN	PTR	www.
+    222	IN	PTR	email.
     ```
 9.  `named-checkconf`
 10. `named-checkzone bagas.com /etc/bind/zones/db.bagas.com`
 11. `named-checkzone 192.168.in-addr.arpa /etc/bind/zones/db.192.168`
-12. `sudo systemctl restart bind9`
+12. 12. `sudo systemctl reload bind9`
+13. `sudo systemctl restart bind9`
